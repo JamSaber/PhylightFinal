@@ -42,7 +42,33 @@ class MyStore
     public function login()
     {
         if (isset($_POST['submit'])) {
-            print_r($_POST);
+
+            $storepass = "202cb962ac59075b964b07152d234b70";
+            $password = $_POST['password'];
+            if (md5($password) == $storepass) {
+                echo "login succes";
+            } else {
+                echo "cannot";
+            }
+        }
+    }
+
+    public function add_user()
+    {
+        if (isset($_POST['add'])) {
+
+            $email = $_POST['email'];
+            $password = md5($_POST['password']);
+            $meter_id = $_POST['meter_id'];
+            $fname = $_POST['fname'];
+            $lname = $_POST['lname'];
+            $mobile = $_POST['mobile'];
+            $username = $_POST['username'];
+            $address = $_POST['address'];
+
+            $connection = $this->openConnection();
+            $stmt = $connection->prepare("INSERT INTO members(`email`,`password`,`meter_id`,`first_name`,'last_name', `mobile`, `username`, `address`)VALUES(?,?,?,?,?,?,?,?)");
+            $stmt->execute([$email, $password, $meter_id, $fname, $lname, $mobile, $username, $address]);
         }
     }
 }

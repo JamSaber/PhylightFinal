@@ -22,17 +22,17 @@ $store->login();
 
                 <div class="form-meter">
                     <label for="">Meter Id </label>
-                    <input type="text" name="username" id="MeterId">
+                    <input type="text" name="username" id="MeterId" required>
                 </div>
 
                 <div class="form-username">
                     <label for="">Username</label>
-                    <input type="text" name="username" id="username">
+                    <input type="text" name="username" id="username" required>
                 </div>
 
                 <div class="form-password">
                     <label for="">Password</label>
-                    <input type="password" name="password" id="password">
+                    <input type="password" name="password" id="password" required>
                 </div>
 
                 <button type="submit" name="submit">Login</button>
