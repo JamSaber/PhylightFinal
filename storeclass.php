@@ -46,19 +46,65 @@ class MyStore
             $password = md5($_POST['password']);
             $username = $_POST['username'];
             $meter_id = $_POST['meter_id'];
+            
 
             $connection = $this->openConnection();
             $stmt = $connection->prepare("SELECT * FROM members WHERE meter_id = ? AND password = ? AND username = ? ");
             $stmt->execute([$meter_id, $password, $username]);
+            $user = $stmt->fetch();
+
             $total = $stmt->rowCount();
 
             if ($total > 0) {
-                echo "Login Succes!";
+                echo "Login Succes!".$user['first_name']." ".$user['last_name'];
+                $this->set_userdata($user);
             } else {
                 echo "Login Failed!";
             }
         }
     }
+
+    public function set_userdata($array){
+        if(!isset($_SESSION)){
+            session_start();
+        }
+
+        $_SESSION['userdata'] = array(
+
+                "fullname" => $array['first_name']." ".$array['last_name'],
+                "access" => $array['access']
+        );
+
+        return $_SESSION['userdata'];
+    }
+
+    public function get_userdata(){
+        if(!isset($_SESSION)){
+            session_start();
+        }
+    
+        if(isset($_SESSION['userdata'])){
+        return $_SESSION['userdata'];
+        }
+        
+        else{
+            return null;
+        }
+    }
+    
+
+    public function logout(){
+
+        if(!isset($_SESSION)){
+            session_start();
+        }
+       
+        $_SESSION['userdata'] = null;
+        unset($_SESSION['userdata']);
+    
+
+    }
+
 
     public function checkUser($meter_id,$username)
     {

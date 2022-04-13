@@ -2,7 +2,13 @@
 
 require_once('storeclass.php');
 $store->add_user();
+$userdetails = $store->get_userdata();
 
+if(isset($userdetails)){
+
+}else{
+    header("location: login.php");
+}
 ?>
 
 <!DOCTYPE html>

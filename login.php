@@ -38,7 +38,7 @@ $store->login();
                 </div>
 
                 <button type="submit" name="submit">Login</button>
-                <button type="submit" name="forgot"> <a href="#">Forgot Password</a></button>
+                <button type="submit" name="forgot"> <a href="login.php">Forgot Password</a></button>
 
 
             </form>
