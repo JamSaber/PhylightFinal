@@ -43,14 +43,32 @@ class MyStore
     {
         if (isset($_POST['submit'])) {
 
-            $storepass = "202cb962ac59075b964b07152d234b70";
-            $password = $_POST['password'];
-            if (md5($password) == $storepass) {
-                echo "login succes";
+            $password = md5($_POST['password']);
+            $username = $_POST['username'];
+            $meter_id = $_POST['meter_id'];
+
+            $connection = $this->openConnection();
+            $stmt = $connection->prepare("SELECT * FROM members WHERE meter_id = ? AND password = ? AND username = ? ");
+            $stmt->execute([$meter_id, $password, $username]);
+            $total = $stmt->rowCount();
+
+            if ($total > 0) {
+                echo "Login Succes!";
             } else {
-                echo "cannot";
+                echo "Login Failed!";
             }
         }
+    }
+
+    public function checkUser($meter_id)
+    {
+
+        $connection = $this->openConnection();
+        $stmt = $connection->prepare("SELECT * FROM members WHERE meter_id = ?");
+        $stmt->execute([$meter_id]);
+        $total = $stmt->rowCount();
+
+        return $total;
     }
 
     public function add_user()
@@ -66,9 +84,14 @@ class MyStore
             $username = $_POST['username'];
             $address = $_POST['address'];
 
-            $connection = $this->openConnection();
-            $stmt = $connection->prepare("INSERT INTO members(`email`,`password`,`meter_id`,`first_name`,'last_name', `mobile`, `username`, `address`)VALUES(?,?,?,?,?,?,?,?)");
-            $stmt->execute([$email, $password, $meter_id, $fname, $lname, $mobile, $username, $address]);
+            if($this->checkUser($meter_id) == 0){
+
+                $connection = $this->openConnection();
+                $stmt = $connection->prepare("INSERT INTO members(`meter_id`,`password`,`email`,`first_name`,`last_name`,`mobile`,`address`, `username`)VALUES(?,?,?,?,?,?,?,?)");
+                $stmt->execute([$meter_id, $password, $email, $fname, $lname, $mobile, $address, $username]);
+            }
+            else{echo "Meter id already exist!";}
+
         }
     }
 }

@@ -20,17 +20,19 @@ $store->login();
         <div class="form-container">
             <form action="" method="post">
 
-                <div class="form-meter">
+            <h1>Sign in</h1>
+
+                <div class="form-meter" required>
                     <label for="">Meter Id </label>
-                    <input type="text" name="username" id="MeterId" required>
+                    <input type="text" name="meter_id" id="meter_id" required>
                 </div>
 
-                <div class="form-username">
+                <div class="form-username" required>
                     <label for="">Username</label>
                     <input type="text" name="username" id="username" required>
                 </div>
 
-                <div class="form-password">
+                <div class="form-password" required>
                     <label for="">Password</label>
                     <input type="password" name="password" id="password" required>
                 </div>
