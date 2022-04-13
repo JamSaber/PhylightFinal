@@ -60,12 +60,12 @@ class MyStore
         }
     }
 
-    public function checkUser($meter_id)
+    public function checkUser($meter_id,$username)
     {
 
         $connection = $this->openConnection();
-        $stmt = $connection->prepare("SELECT * FROM members WHERE meter_id = ?");
-        $stmt->execute([$meter_id]);
+        $stmt = $connection->prepare("SELECT * FROM members WHERE meter_id = ? and username = ?");
+        $stmt->execute([$meter_id, $username]);
         $total = $stmt->rowCount();
 
         return $total;
@@ -84,7 +84,7 @@ class MyStore
             $username = $_POST['username'];
             $address = $_POST['address'];
 
-            if($this->checkUser($meter_id) == 0){
+            if($this->checkUser($meter_id,$username) == 0){
 
                 $connection = $this->openConnection();
                 $stmt = $connection->prepare("INSERT INTO members(`meter_id`,`password`,`email`,`first_name`,`last_name`,`mobile`,`address`, `username`)VALUES(?,?,?,?,?,?,?,?)");
