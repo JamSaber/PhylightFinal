@@ -3,7 +3,8 @@
 require_once('storeclass.php');
 $users = $store->getUsers();
 
-print_r($users);
+
+print_r($userdetails);
 
 ?>
 <!DOCTYPE html>
