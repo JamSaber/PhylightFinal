@@ -23,10 +23,12 @@ if(isset($userdetails)){
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    
     <title>Document</title>
 </head>
 <body>
     <div class="container">
+
             <div class="user-menu">
             <div class="user-button">
                     <button><a class="forgot"  href="user.php">User</a></button>
