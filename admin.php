@@ -5,6 +5,9 @@ $store->add_user();
 $userdetails = $store->get_userdata();
 
 if (isset($userdetails)) {
+    if($userdetails['access'] != "administrator"){
+        header("location: login.php");
+        }
 } else {
     header("location: login.php");
 }
@@ -31,7 +34,7 @@ if (isset($userdetails)) {
             <a href="#contact">User List</a>
             <a href="logout.php">Logout</a>
         </div>
-    
+
     </div>
 </body>
 

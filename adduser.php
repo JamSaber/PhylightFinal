@@ -6,6 +6,10 @@ $userdetails = $store->get_userdata();
 
 if(isset($userdetails)){
 
+    if($userdetails['access'] != "administrator"){
+    header("location: login.php");
+    }
+    
 }else{
     header("location: login.php");
 }

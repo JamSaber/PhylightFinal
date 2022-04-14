@@ -2,10 +2,14 @@
 
 require_once('storeclass.php');
 $store->add_user();
+
 $userdetails = $store->get_userdata();
 
 if(isset($userdetails)){
 
+    if($userdetails['access'] != "user"){
+        header("location: login.php");
+        }
 }else{
     header("location: login.php");
 }
@@ -22,6 +26,9 @@ if(isset($userdetails)){
     <title>Document</title>
 </head>
 <body>
+    <div class="container">
+
+    </div>
     
 </body>
 </html>

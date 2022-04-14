@@ -3,6 +3,22 @@
 require_once('storeclass.php');
 $store->login();
 
+$userdetails = $store->get_userdata();
+if(isset($userdetails)){
+
+    if($userdetails['access'] == "user"){
+    header("location: user.php");
+    }
+
+    else if($userdetails['access'] == "administrator"){
+        header("location: admin.php");
+        }
+else{
+    header("location: login.php");
+}
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +56,9 @@ $store->login();
                 </div>
 
                 <button type="submit" name="submit">Login</button>
+                <button type="submit" name="forgot"> <a  class="forgot" href="index.php">Back</a></button>
                 <button type="submit" name="forgot"> <a  class="forgot" href="index.php">Forgot Password</a></button>
+       
 
 
             </form>

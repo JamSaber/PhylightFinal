@@ -39,6 +39,7 @@ class MyStore
         }
     }
 
+
     public function login()
     {
         if (isset($_POST['submit'])) {
@@ -58,8 +59,8 @@ class MyStore
             if ($total > 0) {
                 echo "Login Success! ".$user['first_name']." ".$user['last_name'];
                 $this->set_userdata($user);
-                header("location: admin.php");
-            } else {
+            } 
+            else {
                 echo "Login Failed! Please Check your Login Details";
             }
         }
