@@ -14,6 +14,7 @@ box-sizing: border-box;
     background: rgb(30,0,36);
     background: linear-gradient(90deg, rgba(30,0,36,1) 0%, rgba(82,9,121,1) 35%, rgb(78, 20, 178) 100%);
     position: relative; /*realtive so we can use absolute so we can click inside the container*/
+
 }
 
 body {
@@ -79,7 +80,8 @@ body {
     align-items: center;
 }
 .phylight{
-    font-size: 6rem;
+    margin: 0 .5rem .5rem 0;
+    font-size: 5rem;
 }
 p{
     padding: 0 3% 3% 5%;
@@ -144,7 +146,7 @@ input[type=text], input[type=password] {
   /*admin*/
   .sidenav {
     height: 100%;
-    width: 10rem;
+    width: 12rem;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -155,7 +157,7 @@ input[type=text], input[type=password] {
   }
   
   .sidenav a {
-    padding: .2rem 1rem;
+    padding: .1rem 1rem;
     text-decoration: none;
     font-size: 25px;
     color: #ffd900;
@@ -165,3 +167,29 @@ input[type=text], input[type=password] {
   .sidenav a:hover {
     color: #f1f1f1;
   }
+
+  /*user*/
+  .user-menu{
+      padding-top: 10%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      font-size: 17px;
+  }
+
+.googlesheet>iframe{
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    width: 600px;
+    height: 600px;
+}
+.graph{
+    overflow: scroll;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+}

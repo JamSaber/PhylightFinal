@@ -1,7 +1,6 @@
 <?php
 
 require_once('storeclass.php');
-$store->add_user();
 
 $userdetails = $store->get_userdata();
 
@@ -14,6 +13,7 @@ if(isset($userdetails)){
     header("location: login.php");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,33 +23,22 @@ if(isset($userdetails)){
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://docs.google.com/spreadsheets/d/1OsXKLZHf1Qo426_72dAdDNEcXcAHnhR65lwcI9Mz5B8/edit?usp=sharing">
+    <title>Chart</title>
 </head>
 <body>
     <div class="container">
-            <div class="user-menu">
-            <div class="user-button">
-                    <button><a class="forgot"  href="user.php">User</a></button>
+        <div class="graph">
+    <div class="user-button">
+                    <button><a class="forgot" href="user.php">Back</a></button>
             </div>
-
-            <div class="user-button">
-                    <button><a class="forgot"  href="electricchart.php">Electric Graph</a></button>
+        <div class="user-button">
+                    <button><a class="forgot" href="logout.php">Logout</a></button>
             </div>
-
-            <div class="user-button">
-                    <button><a class="forgot"  href="">Electric Bill</a></button>
-            </div>
-
-            <div class="user-button">
-                    <button><a class="forgot" href="logout.php">logout</a></button>
-            </div>
-
-            </div>
+        <div class="googlesheet">
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQxeTRhu4kHY0dquc5M0WJeXsLKh3y9NPM0V7N8owGo1buoVMg16UZ4cF1geIX_XVXV0BrTQs8MkL_J/pubhtml?widget=true&amp;headers=false"></iframe>
         </div>
-
+        </div>
     </div>
-    <script>
-
-</script>
 </body>
 </html>
