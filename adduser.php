@@ -18,62 +18,64 @@ if(isset($userdetails)){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Sign Up</title>
 </head>
 
 <body>
-    <h1>Sing Up</h1>
-
+    <div class="container">
     <div class="form-container">
+    <h1>Sign Up</h1>
         <form action="" method="post">
 
-            <div class="form-meter">
-                <label for="">Meter Id</label>
-                <input type="text" name="meter_id" id="meter_id" required>
+
+            <div class="form-login">
+                <input type="text" placeholder="Meter ID" name="meter_id" id="meter_id" required>
             </div>
 
-            <div class="form-username">
-                <label for="">Username</label>
-                <input type="text" name="username" id="username" required>
-            </div>
-
-
-            <div class="form-password">
-                <label for="">Password</label>
-                <input type="password" name="password" id="password" required>
-            </div>
-
-            <div class="form-email">
-                <label for="">Email</label>
-                <input type="email" name="email" id="email" required>
+            <div class="form-login">
+                <input type="text" placeholder="Usernamer"  name="username" id="username">
             </div>
 
 
-            <div class="form-fname">
-                <label for="">First Name</label>
-                <input type="text" name="fname" id="fname">
+            <div class="form-login">
+                <input type="password" placeholder="password" name="password" id="password">
             </div>
 
-            <div class="form-lname">
-                <label for="">Last Name</label>
-                <input type="text" name="lname" id="lname">
-            </div>
-
-            <div class="form-number">
-                <label for="">Contact Number</label>
-                <input type="text" name="mobile" id="mobile">
+            <div class="form-login">
+                <input type="email" placeholder="Email" name="email" id="email" >
             </div>
 
 
-            <div class="form-address">
-                <label for="">Address</label>
-                <input type="text" name="address" id="address">
+            <div class="form-login">
+                <input type="text" placeholder="First Name"  name="fname" id="fname">
+            </div>
+
+            <div class="form-login">
+                <input type="text" placeholder="Last Name" name="lname" id="lname">
+            </div>
+
+            <div class="form-login">
+                <input type="text" placeholder="Contact Number" name="mobile" id="mobile">
+            </div>
+
+
+            <div class="form-login">
+                <input type="text" placeholder="Address" name="address" id="address">
+            </div>
+            
+            <div class="form-login">
+                <input type="text" placeholder="Administrator or User" name="access" id="access">
             </div>
 
 
             <button type="submit" name="add">Submit</button>
+            <button type="submit" name="add"><a class="forgot" href="admin.php">Back</a></button>
 
         </form>
+    </div>
     </div>
 
 </body>

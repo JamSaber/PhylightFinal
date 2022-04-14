@@ -56,10 +56,11 @@ class MyStore
             $total = $stmt->rowCount();
 
             if ($total > 0) {
-                echo "Login Succes!".$user['first_name']." ".$user['last_name'];
+                echo "Login Success! ".$user['first_name']." ".$user['last_name'];
                 $this->set_userdata($user);
+                header("location: admin.php");
             } else {
-                echo "Login Failed!";
+                echo "Login Failed! Please Check your Login Details";
             }
         }
     }
@@ -129,12 +130,13 @@ class MyStore
             $mobile = $_POST['mobile'];
             $username = $_POST['username'];
             $address = $_POST['address'];
+            $access = $_POST['access'];
 
             if($this->checkUser($meter_id,$username) == 0){
 
                 $connection = $this->openConnection();
-                $stmt = $connection->prepare("INSERT INTO members(`meter_id`,`password`,`email`,`first_name`,`last_name`,`mobile`,`address`, `username`)VALUES(?,?,?,?,?,?,?,?)");
-                $stmt->execute([$meter_id, $password, $email, $fname, $lname, $mobile, $address, $username]);
+                $stmt = $connection->prepare("INSERT INTO members(`meter_id`,`password`,`email`,`first_name`,`last_name`,`mobile`,`address`, `username`, `access`)VALUES(?,?,?,?,?,?,?,?,?)");
+                $stmt->execute([$meter_id, $password, $email, $fname, $lname, $mobile, $address, $username, $access]);
             }
             else{echo "Meter id already exist!";}
 
