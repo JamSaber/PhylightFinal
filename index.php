@@ -24,7 +24,7 @@ $users = $store->getUsers();
 <div class="topnav" id="myTopnav">
   <a href="index.php" class="active">Home</a>
   <a href="login.php">Sign In</a>
-  <a href="#contact">Contact Us to Sign Up</a>
+  <a href="contact.php">Contact Us to Sign Up</a>
   <a href="#about">About</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>

@@ -33,9 +33,6 @@ if(isset($userdetails)){
     <div class="user-button">
                     <button><a class="forgot" href="user.php">Back</a></button>
             </div>
-        <div class="user-button">
-                    <button><a class="forgot" href="logout.php">Logout</a></button>
-            </div>
             </div>
         <div class="googlesheet">
         <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQxeTRhu4kHY0dquc5M0WJeXsLKh3y9NPM0V7N8owGo1buoVMg16UZ4cF1geIX_XVXV0BrTQs8MkL_J/pubhtml?widget=true&amp;headers=false"></iframe>

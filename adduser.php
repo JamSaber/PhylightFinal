@@ -40,12 +40,12 @@ if(isset($userdetails)){
             </div>
 
             <div class="form-login">
-                <input type="text" placeholder="Usernamer"  name="username" id="username">
+                <input type="text" placeholder="Username"  name="username" id="username">
             </div>
 
 
             <div class="form-login">
-                <input type="password" placeholder="password" name="password" id="password">
+                <input type="password" placeholder="Password" name="password" id="password">
             </div>
 
             <div class="form-login">

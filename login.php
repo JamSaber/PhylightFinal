@@ -47,12 +47,12 @@ else{
 
                 <div class="form-login" required>
                     <label for="">Username <br></label>
-                    <input type="text" name="username" id="username" required>
+                    <input type="text" name="username" id="username" >
                 </div>
 
                 <div class="form-login" required>
                     <label for="">Password<br></label>
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" name="password" id="password" >
                 </div>
 
                 <button type="submit" name="submit">Login</button>

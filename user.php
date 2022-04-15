@@ -7,9 +7,7 @@ $userdetails = $store->get_userdata();
 
 if(isset($userdetails)){
 
-    if($userdetails['access'] != "user"){
-        header("location: login.php");
-        }
+        
 }else{
     header("location: login.php");
 }
@@ -31,7 +29,7 @@ if(isset($userdetails)){
 
             <div class="user-menu">
             <div class="user-button">
-                    <button><a class="forgot"  href="user.php">User</a></button>
+                    <button><a class="forgot"  href="contact.php">Contact Us</a></button>
             </div>
 
             <div class="user-button">
