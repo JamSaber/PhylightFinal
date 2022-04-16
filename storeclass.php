@@ -2,9 +2,13 @@
 
 class MyStore
 {
-    private $server = "mysql:host=localhost;dbname=store";
-    private $user = "root";
-    private $pass = "";
+    private $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    private $cleardb_server = $cleardb_url["host"];
+    private $cleardb_username = $cleardb_url["user"];
+    private $cleardb_password = $cleardb_url["pass"];
+    private $cleardb_db = substr($cleardb_url["path"],1);
+    private $active_group = 'default';
+    private $query_builder = TRUE;
     private $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
     protected $con;
 
@@ -12,12 +16,23 @@ class MyStore
     {
         try {
 
-            $this->con = new PDO($this->server, $this->user, $this->pass, $this->options);
+            $this->con = new PDO($this->cleardb_server, $this->cleardb_username, $this->cleardb_password, $this->$cleardb_db, $this->$active_group, $this->$query_builder, $this->$options);
             return $this->con;
         } catch (PDOException $e) {
             echo "Have Problem in Connection :" . $e->getMessage();
         }
     }
+
+
+    //Get Heroku ClearDB connection information
+
+// Connect to DB
+$conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
+
+
+
+
 
     public function closeConnection()
     {
