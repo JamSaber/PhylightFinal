@@ -2,6 +2,24 @@
 
 class MyStore
 {
+    
+//      private $server = "mysql:host=localhost;dbname=store";
+//     private $user = "root";
+//     private $pass = "";
+//     private $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
+//     protected $con;
+
+//     public function openConnection()
+//     {
+//         try {
+
+//             $this->con = new PDO($this->server, $this->user, $this->pass, $this->options);
+//             return $this->con;
+//         } catch (PDOException $e) {
+//             echo "Have Problem in Connection :" . $e->getMessage();
+//         }
+//     }
+
     mysql = require('mysql');
     private $host = "us-cdbr-east-05.cleardb.net";
     private $user = "b975aafafa0878";
