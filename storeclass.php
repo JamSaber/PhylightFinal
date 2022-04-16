@@ -2,21 +2,19 @@
 
 class MyStore
 {
-    private $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-    private $cleardb_server = $cleardb_url["host"];
-    private $cleardb_username = $cleardb_url["user"];
-    private $cleardb_password = $cleardb_url["pass"];
-    private $cleardb_db = substr($cleardb_url["path"],1);
-    private $active_group = 'default';
-    private $query_builder = TRUE;
+    mysql = require('mysql');
+    private $host = "us-cdbr-east-05.cleardb.net";
+    private $user = "b975aafafa0878";
+    private $password = "495cd372";
+    private $db = "heroku_89e6acdcdc5eb8f";
     private $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
     protected $con;
 
     public function openConnection()
     {
         try {
-
-            $this->con = new PDO($this->cleardb_server, $this->cleardb_username, $this->cleardb_password, $this->$cleardb_db, $this->$active_group, $this->$query_builder, $this->$options);
+ 
+            $this->con = new PDO($this->host, $this->user, $this->password, $this->db, $this->options);
             return $this->con;
         } catch (PDOException $e) {
             echo "Have Problem in Connection :" . $e->getMessage();
